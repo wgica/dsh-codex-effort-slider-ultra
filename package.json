@@ -1,0 +1,75 @@
+{
+  "name": "dsh-codex-effort-slider-ultra",
+  "version": "1.5.6",
+  "description": "Codex-style reasoning effort slider with an extra Ultra tier: the top real effort plus an editable injected instruction, and a blue-violet banner transition when the knob slides up to Ultra.",
+  "license": "MIT",
+  "author": "Microqian2th",
+  "contributors": [
+    {
+      "name": "wgica"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wgica/dsh-codex-effort-slider-ultra.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wgica/dsh-codex-effort-slider-ultra/issues"
+  },
+  "homepage": "https://github.com/wgica/dsh-codex-effort-slider-ultra#readme",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "reasoning-effort",
+    "slider",
+    "ui",
+    "ultra",
+    "system-prompt"
+  ],
+  "type": "module",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "screenshots.json",
+    "install-profile.ps1",
+    "install.cmd",
+    "publish.cmd",
+    "publish.ps1",
+    "scripts",
+    "LICENSE",
+    "test",
+    "preview",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node test/client.test.mjs",
+    "test:host": "node test/host.test.mjs",
+    "test:all": "node test/host.test.mjs && node test/client.test.mjs",
+    "preview": "node preview/make-preview.mjs",
+    "pack": "node ./scripts/pack.mjs",
+    "publish:github": "powershell -NoProfile -ExecutionPolicy Bypass -File ./publish.ps1"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "optionalDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.5"
+  }
+}
